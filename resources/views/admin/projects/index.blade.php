@@ -28,7 +28,12 @@
                             <img width="150" src="{{$project->cover_image}}" alt="">
                         </td>
                         <td>{{$project->title}}</td>
-                        <td>view|edit|delete</td>
+                        <td>
+                            <a class="btn btn-primary" href="{{route('admin.projects.show', $project)}}">
+                                <i class="fas fa-eye fa-xs fa-fw"></i>
+                            </a>
+                            |edit|delete
+                        </td>
                     </tr>
 
                 @empty
