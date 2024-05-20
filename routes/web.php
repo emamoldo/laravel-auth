@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminProjectController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,8 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->group(function () {
         Route::get('/', [AdminProjectController::class, 'index'])->name('dashboard');
+
+        Route::resource('projects', ProjectController::class);
     });
 
 
