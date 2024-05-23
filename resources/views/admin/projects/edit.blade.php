@@ -28,8 +28,14 @@
 
 
         <div class="mb-3">
-            <label for="cover_image" class="form-label">Image</label>
-            <input type="text" class="form-control @error('cover_image') is-invalid @enderror" name="cover_image"
+            @if(Str::startsWith($project->cover_image, 'https://'))
+                <img width="150" src="{{$project->cover_image}}" alt="">
+            @else
+                <img width="150" src="{{asset('storage/' . $project->cover_image)}}" alt="">
+            @endif
+
+            <label for="cover_image" class="form-label">Update Image</label>
+            <input type="file" class="form-control @error('cover_image') is-invalid @enderror" name="cover_image"
                 id="cover_image" aria-describedby="cover_imageHelper" placeholder="Title of the Project"
                 value="{{old('cover_image')}}" />
             <small id="cover_imageHelper" class="form-text text-muted">Add the cover image of the Project</small>
